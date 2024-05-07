@@ -1,5 +1,10 @@
 <?php
 class Account_model extends CI_Model {
+    public function __construct() {
+        parent::__construct();
+        $this->load->database();
+    }
+
     public function create_account($data) {
         $this->db->insert('account', $data);
         return ($this->db->affected_rows() != 1) ? false : true;
